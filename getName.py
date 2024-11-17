@@ -1,8 +1,12 @@
 from flask import Flask, request, jsonify
+from flask_cors import CORS  # เพิ่มการ import นี้
 import requests
 from bs4 import BeautifulSoup
 
 app = Flask(__name__)
+
+# เพิ่มการตั้งค่า CORS
+CORS(app)
 
 @app.route('/get_video_name', methods=['POST'])
 def get_video_name():
