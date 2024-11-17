@@ -8,6 +8,12 @@ app = Flask(__name__)
 # เพิ่มการตั้งค่า CORS
 CORS(app)
 
+# หน้าแรก (Route "/")
+@app.route('/', methods=['GET'])
+def home():
+    return jsonify({'message': 'Welcome to the YouTube Video Title API. Use /get_video_name to get video title.'})
+
+# Route สำหรับ /get_video_name (POST method)
 @app.route('/get_video_name', methods=['POST'])
 def get_video_name():
     try:
